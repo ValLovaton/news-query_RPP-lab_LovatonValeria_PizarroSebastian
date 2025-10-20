@@ -4,4 +4,8 @@ tiktoken
 sentence-transformers
 chromadb
 langchain
+langchain-community
+langchain-core
 numpy
+matplotlib
+scikit-learn
