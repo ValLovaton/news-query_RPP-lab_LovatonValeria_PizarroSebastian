@@ -32,3 +32,11 @@ Requisitos:
 - Ejemplo de consulta: “Últimas noticias de economía”
 - Salida: tabla con `title | description | link | date_published`
 
+## Paso 4: Orquestación (LangChain)
+- Función principal: `src/langchain_pipeline.py::run_pipeline(query, limit, persist_dir, collection_name)`
+- Flujo: **Load → Tokenize (preview) → Embed/Store (Chroma) → Retrieve (top-k)**
+- Notebook: `notebooks/03_pipeline_langchain.ipynb`
+- Salida: 
+  - `tokenization`: `{"tokens": int, "need_chunk": bool, "preview": str}`
+  - `results`: DataFrame con `title | description | link | date_published`
+
