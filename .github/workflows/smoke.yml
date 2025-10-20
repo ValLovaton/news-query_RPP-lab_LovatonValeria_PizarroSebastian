@@ -1,0 +1,43 @@
+name: Smoke Task1 (rápido)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Instalar deps mínimas (sin embeddings)
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser tiktoken pandas
+
+      - name: Smoke RSS + tokenización
+        run: |
+          python - << 'PY'
+          import sys, os
+          sys.path.append(os.path.abspath("."))  # root del repo
+          # si el notebook vive en /notebooks y el código en /src:
+          # sys.path.append(os.path.abspath("notebooks/.."))
+
+          from src.rss_loader import load_rpp_rss
+          from src.tokenization import build_article_text, count_tokens, should_chunk
+
+          items = load_rpp_rss(limit=5)
+          assert items and all(k in items[0] for k in ["title","description","link","date_published"])
+
+          txt = build_article_text(items[0])
+          n = count_tokens(txt)
+          need = should_chunk(n)
+          print({"tokens": n, "need_chunk": need, "title": items[0]["title"][:60]})
+          PY
