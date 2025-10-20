@@ -23,3 +23,12 @@ Requisitos:
   - `should_chunk(num_tokens, context_limit=4096, safety_margin=512)`
 - Notebook: `notebooks/01_tokenization.ipynb`
   - Muestra tokens de una noticia y de las primeras 10
+ 
+  ## Paso 3: Embeddings + ChromaDB + Retriever (LangChain)
+- Modelo de embeddings: `sentence-transformers/all-MiniLM-L6-v2`
+- Vector store: `Chroma` (persistencia local en `.chroma/`)
+- Módulo: `src/embeddings_store.py`
+- Notebook: `notebooks/02_embeddings_retrieval.ipynb`
+- Ejemplo de consulta: “Últimas noticias de economía”
+- Salida: tabla con `title | description | link | date_published`
+
