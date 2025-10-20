@@ -1,0 +1,9 @@
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+data/*
+outputs/*
+!data/.keep
+!data/.gitkeep
+!outputs/.keep
+!outputs/.gitkeep
