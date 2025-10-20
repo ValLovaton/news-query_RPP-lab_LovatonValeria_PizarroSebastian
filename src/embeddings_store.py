@@ -4,9 +4,9 @@ from typing import List, Dict, Any
 import pandas as pd
 
 # LangChain & Chroma
-from langchain.docstore.document import Document
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_core.documents import Document
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
 
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
