@@ -1,4 +1,4 @@
-# news-query_RPP-lab
+# Tarea: news-query_RPP-lab
 
 Pipeline paso a paso:
 - Paso 0: Preparación de repo (este PR)
