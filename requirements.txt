@@ -1,3 +1,7 @@
 feedparser
 pandas
 tiktoken
+sentence-transformers
+chromadb
+langchain
+numpy
